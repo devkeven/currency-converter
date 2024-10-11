@@ -36,6 +36,7 @@
 			label2 = new Label();
 			btnConvert = new Button();
 			label3 = new Label();
+			lblError = new Label();
 			SuspendLayout();
 			// 
 			// cbPairs
@@ -90,12 +91,13 @@
 			// 
 			// btnConvert
 			// 
+			btnConvert.BackColor = Color.CornflowerBlue;
 			btnConvert.Location = new Point(47, 188);
 			btnConvert.Name = "btnConvert";
 			btnConvert.Size = new Size(205, 43);
 			btnConvert.TabIndex = 6;
 			btnConvert.Text = "Convert";
-			btnConvert.UseVisualStyleBackColor = true;
+			btnConvert.UseVisualStyleBackColor = false;
 			btnConvert.Click += btnConvert_Click;
 			// 
 			// label3
@@ -110,11 +112,22 @@
 			label3.Text = "Currency Converter";
 			label3.TextAlign = ContentAlignment.MiddleCenter;
 			// 
+			// lblError
+			// 
+			lblError.AutoSize = true;
+			lblError.ForeColor = Color.Red;
+			lblError.Location = new Point(47, 163);
+			lblError.Name = "lblError";
+			lblError.Size = new Size(32, 15);
+			lblError.TabIndex = 8;
+			lblError.Text = "Error";
+			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(306, 263);
+			Controls.Add(lblError);
 			Controls.Add(label3);
 			Controls.Add(btnConvert);
 			Controls.Add(label2);
@@ -140,5 +153,6 @@
 		private Label label2;
 		private Button btnConvert;
 		private Label label3;
+		private Label lblError;
 	}
 }

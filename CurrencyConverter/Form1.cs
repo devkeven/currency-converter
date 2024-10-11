@@ -14,6 +14,7 @@ namespace CurrencyConverter
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			lblError.Text = "";
 			string filePath = @"C:\Users\kmartins\source\repos\CurrencyConverter\CurrencyConverter\Rates.xlsx";
 			var dataTable = ExcelFiles.ReadExcelFiles(filePath);
 
@@ -44,11 +45,24 @@ namespace CurrencyConverter
 
 		private void btnConvert_Click(object sender, EventArgs e)
 		{
-				decimal rate = decimal.Parse(values[cbPairs.SelectedIndex, 2]);
-				var value = decimal.Parse(txtValue.Text);
-				var result = value * rate;
+			// clear the error label
+			lblError.Text = "";
 
-				txtResult.Text = result.ToString();			
+			decimal value;
+
+			bool valid = decimal.TryParse(txtValue.Text, out value);
+			if (valid) 
+			{
+				decimal rate = decimal.Parse(values[cbPairs.SelectedIndex, 2]);
+				decimal result = value * rate;
+
+				txtResult.Text = result.ToString();
+			}
+			else
+			{
+				lblError.Text = "Insert a valid value!";
+			}
+					
 		}
 	}
 }
